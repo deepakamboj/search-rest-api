@@ -20,12 +20,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 //native sql query-products is table name and * at place of alias
     List<Product> searchProductsSql(String query);
 }
-// In JPQL, always use @Param unless you explicitly compile with -parameters.
+// In JPQL, always use @Param unless you explicitly compile with-parameters.
 // In native SQL, it may work without @Param, but adding it makes your code portable and predictable.
 //Spring Data JPA treats JPQL and native queries slightly differently when it comes to parameter name binding.
 //JPQL case (needs @Param)
-//In JPQL (HQL), Spring parses the query string itself and matches the :parameterName against your method parameters.
-//By default, method parameter names are not available at runtime unless compiled with -parameters.
+//In JPQL (HQL), Spring parses the query string itself and matches the:parameterName against your method parameters.
+//By default, method parameter names are not available at runtime unless compiled with  -parameters.
 //Without @Param, the binding fails because Spring can’t figure out which parameter maps to :query.
 //Native SQL case (often works without @Param)
 //For native queries, Spring doesn’t parse the SQL — it just hands it off to your JPA provider (Hibernate).
